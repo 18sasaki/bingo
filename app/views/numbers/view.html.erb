@@ -1,0 +1,13 @@
+
+<div align='center'>
+  <%= image_tag( "#{@num}.png" ) %>
+
+
+  <h1>
+    <%= link_to '次！', game_loading_path(@game_id) %>
+    <br>
+    <br>
+    <%= link_to '現状を確認する', game_show_path(@game_id) %>
+  </h1>
+
+</div>

@@ -1,0 +1,28 @@
+
+<div align='center'>
+<table border=1>
+  <tr>
+    <td class='division'>B</td>
+    <td class='division'>I</td>
+    <td class='division'>N</td>
+    <td class='division'>G</td>
+    <td class='division'>O</td>
+  </tr>
+  <tr>
+    <% @num_list.each do |list| %>
+      <td>
+        <% list.each_with_index do |num, i| %>
+          <%= image_tag( "#{num}.png", :size => '80x80' ) %>
+          <% if i % 2 == 1 %><br><% end %>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+</table>
+
+
+<h1>
+<%= link_to '次！', game_loading_path(@game) %>
+</h1>
+
+</div>

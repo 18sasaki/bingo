@@ -1,0 +1,27 @@
+<h1>Listing numbers</h1>
+
+<table>
+  <tr>
+    <th>Game</th>
+    <th>Num</th>
+    <th>Division</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @numbers.each do |number| %>
+  <tr>
+    <td><%= number.game_id %></td>
+    <td><%= number.num %></td>
+    <td><%= number.division %></td>
+    <td><%= link_to 'Show', number %></td>
+    <td><%= link_to 'Edit', edit_number_path(number) %></td>
+    <td><%= link_to 'Destroy', number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Number', new_number_path %>

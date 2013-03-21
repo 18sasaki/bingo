@@ -1,4 +1,19 @@
 Bingo::Application.routes.draw do
+  resources :numbers
+    get 'number/view/:game_id' => 'numbers#view', :as => 'number_view'
+
+
+  resources :games, :except => 'show'
+    get 'game/show/:game_id'    => 'games#show',    :as => 'game_show'
+    get 'game/start'            => 'games#start',   :as => 'game_start'
+    get 'game/loading/:game_id' => 'games#loading', :as => 'game_loading'
+
+
+#  root :to => 'game#index'
+
+  match '/' => 'games#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
