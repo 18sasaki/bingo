@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     @games = Game.all
+    @numbers = Number.find(:all, :conditions => ['game_id = ?', @game])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +22,6 @@ class GamesController < ApplicationController
     render 'numbers/loading'
   end
 
-
   # GET /games/1
   # GET /games/1.json
   def show
@@ -33,6 +33,22 @@ class GamesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @game }
     end
+  end
+
+  def stop_twitter
+    @game = Game.find(params[:game_id])
+    @game.total = 0
+    @game.save
+
+    redirect_to(params[:back_to])
+  end
+
+  def start_twitter
+    @game = Game.find(params[:game_id])
+    @game.total = 1
+    @game.save
+
+    redirect_to(params[:back_to])
   end
 
   # GET /games/new

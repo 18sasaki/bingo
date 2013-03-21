@@ -8,7 +8,21 @@
 </head>
 <body>
 
+<div class='left'>
 <%= yield %>
+</div>
+
+<% if controller.action_name != 'index' %>
+  <% if twitter_view(request.parameters[:game_id]) %>
+    <div class='right'>
+      <a class="twitter-timeline" width="370" height='100%' href="https://twitter.com/search?q=%23arai_nijikai" data-widget-id="314817923908771840">#arai_nijikai に関するツイート</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <%= link_to('ばつ', stop_twitter_path(request.parameters[:game_id], :back_to => request.fullpath)) %>
+    </div>
+  <% else %>
+    <%= link_to('_', start_twitter_path(request.parameters[:game_id], :back_to => request.fullpath)) %>
+  <% end %>
+<% end %>
 
 </body>
 </html>

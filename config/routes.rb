@@ -7,6 +7,8 @@ Bingo::Application.routes.draw do
     get 'game/show/:game_id'    => 'games#show',    :as => 'game_show'
     get 'game/start'            => 'games#start',   :as => 'game_start'
     get 'game/loading/:game_id' => 'games#loading', :as => 'game_loading'
+    get 'game/stop_twitter/:game_id'   => 'games#stop_twitter',  :as => 'stop_twitter'
+    get 'game/start_twitter/:game_id'  => 'games#start_twitter', :as => 'start_twitter'
 
 
 #  root :to => 'game#index'

@@ -40,6 +40,15 @@ div {
   }
 }
 
+div.left {
+  float: left;
+  margin-left: 5%;
+}
+
+div.right {
+  float: right;
+}
+
 #notice {
   color: green;
 }
